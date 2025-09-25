@@ -9,7 +9,7 @@ This guide explains how to create our robot step by step.
 Before starting, make sure you have the following components:
 
 - **Servomotor:** SG90  
-- **DC Motor:** Force-Up 6V 1000 RPM Carbon Brushed DC Motor  
+- **DC Motor:** Force-Up 6V 650 RPM Carbon Brushed DC Motor  
 - **Motor Driver:** TB6612FNG  
 - **Microcontroller:** Arduino Uno  
 - **Ultrasonic Sensors:** 4 × HC-SR04  
@@ -26,24 +26,19 @@ Before starting, make sure you have the following components:
 You will need to 3D print the following components for your robot:
 
 - **Bottom Part (Corpus Base):**  
-  [buttompart.stl](https://github.com/Eisenwall/WRO---future-engineers/blob/main/files%20for%20creating%20robot/buttompart.stl)  
+  [buttompart.stl]([https://github.com/Eisenwall/WRO---future-engineers/blob/main/files%20for%20creating%20robot/buttompart.stl](https://github.com/Eisenwall/WRO---Union/blob/main/files%20and%20details%20to%20create%20obelix%202.0/3d%20models/3d%20models))  
 
 - **Motor Converter (Connect Motors to LEGO Parts):**  
-  [converter for motor.stl](https://github.com/Eisenwall/WRO---future-engineers/blob/main/files%20for%20creating%20robot/converter%20for%20motor.stl)  
-
-- **Turning Mechanism Parts:**  
-  [details for turning0.stl](https://github.com/Eisenwall/WRO---future-engineers/blob/main/files%20for%20creating%20robot/details%20for%20turning0.stl)  
-  [details for turning1.stl](https://github.com/Eisenwall/WRO---future-engineers/blob/main/files%20for%20creating%20robot/details%20for%20turning1.stl)  
+  [converter for motor.stl](https://github.com/Eisenwall/WRO---Union/blob/main/files%20and%20details%20to%20create%20obelix%202.0/3d%20models/adapters.gx)   
 
 - **Wheels:**  
-  [forward and back wheels.stl](https://github.com/Eisenwall/WRO---future-engineers/blob/main/files%20for%20creating%20robot/forward%20and%20back%20wheels.stl)  
-  [forward wheels.stl](https://github.com/Eisenwall/WRO---future-engineers/blob/main/files%20for%20creating%20robot/forward%20wheels.stl)  
+  [forward and back wheels.stl](https://github.com/Eisenwall/WRO---Union/blob/main/files%20and%20details%20to%20create%20obelix%202.0/3d%20models/wheels.gx)
 
 - **Middle Part of Robot:**  
-  [middlepart.stl](https://github.com/Eisenwall/WRO---future-engineers/blob/main/files%20for%20creating%20robot/middlepart.stl)  
+  [middlepart.stl](https://github.com/Eisenwall/WRO---Union/blob/main/files%20and%20details%20to%20create%20obelix%202.0/3d%20models/middpart.stl)  
 
 - **Top Part of Robot:**  
-  [toppart.stl](https://github.com/Eisenwall/WRO---future-engineers/blob/main/files%20for%20creating%20robot/toppart.stl)  
+  [toppart.stl](https://github.com/Eisenwall/WRO---Union/blob/main/files%20and%20details%20to%20create%20obelix%202.0/3d%20models/top-part.stl)  
 
 ---
 

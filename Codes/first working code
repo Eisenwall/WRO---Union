@@ -1,0 +1,196 @@
+#include <Servo.h>
+Servo myServo;
+
+#define PWMA A3
+#define AIN1 A4
+#define AIN2 A5
+
+#define TRIG_F 2
+#define ECHO_F 3
+
+#define TRIG_R 4
+#define ECHO_R 5
+
+#define TRIG_L 6
+#define ECHO_L 7
+
+#define TRIG_B 8
+#define ECHO_B 9
+
+float prevR = 0, currR = 0, prevL = 0, currL = 0, prevB = 0, currB = 0, prevF = 0, currF = 0;
+long duration;
+int servoPos = 89;
+int stepCount = 0;
+int x;
+bool xSet = false;  // флаг, определён ли x
+
+float getDistance(int trigPin, int echoPin) {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH, 20000);
+  if(duration == 0) return 9999;
+  return (duration * 0.0343) / 2;
+}
+
+void setup() {
+  pinMode(TRIG_R, OUTPUT);
+  pinMode(ECHO_R, INPUT);
+
+  pinMode(TRIG_L, OUTPUT);
+  pinMode(ECHO_L, INPUT);
+
+  pinMode(TRIG_B, OUTPUT);
+  pinMode(ECHO_B, INPUT);
+
+  pinMode(TRIG_F, OUTPUT);
+  pinMode(ECHO_F, INPUT);
+
+  myServo.attach(A2);
+  myServo.write(servoPos);
+  delay(300);
+  pinMode(PWMA, OUTPUT);
+  pinMode(AIN1, OUTPUT);
+  pinMode(AIN2, OUTPUT);
+
+  digitalWrite(AIN1, HIGH);
+  digitalWrite(AIN2, LOW);
+  analogWrite(PWMA, 255);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (stepCount >= 12) {
+    analogWrite(PWMA, 0);     // мотор стоп
+    myServo.write(89);        // серво в центр
+    while (true) {
+    }
+  }
+
+  prevR = currR;
+  currR = getDistance(TRIG_R, ECHO_R);
+
+  prevL = currL;
+  currL = getDistance(TRIG_L, ECHO_L);
+
+  prevB = currB;
+  currB = getDistance(TRIG_B, ECHO_B);
+
+  prevF = currF;
+  currF = getDistance(TRIG_F, ECHO_F);
+
+  float diffR = currR - prevR;
+  float diffL = currL - prevL;
+  float diffB = currB - prevB;
+  float diffF = currF - prevF;
+
+  if(!xSet){  // если x ещё не установлен
+    if (currL < 18 && currF > currB){
+      x = 1;
+    }
+    else if (currL < 18 && currF < currB){
+      x = 2;
+    }
+    else if (currL > 70 && currF < currB){
+      x = 3;
+    }
+    else if (currL > 70 && currF > currB){
+      x = 4;
+    }
+    else if (currR < 35 && currF < currB){
+      x = 5;
+    }
+    else if (currR < 35 && currF > currB){
+      x = 6;
+    }
+    else if (currR > 55 && currF > currB){
+      x = 7;
+    }
+    else if (currR > 55 && currF < currB){
+      x = 8;
+    }
+    xSet = true;
+  }
+
+  if(currL > 125 && currB > 150) {            // больше 1 м → серво на 110° на 400 мс
+    myServo.write(62);
+    delay(670);
+    servoPos = 89;
+    myServo.write(servoPos);
+    stepCount++;
+    if (x == 1 && stepCount == 12) {
+      delay(100);
+      myServo.write(65);
+      delay(300);
+    }
+    else if (x == 2 && stepCount == 12){
+      delay(700);
+      myServo.write(65);
+      delay(550);
+    }
+    else if (x == 3 && stepCount == 12){
+      delay(700);
+      myServo.write(113);
+      delay(900);
+      myServo.write(89);
+      delay(350);
+    }
+    else if (x == 4 && stepCount == 12){
+      delay(50);
+      myServo.write(113);
+      delay(700);
+      myServo.write(89);
+      delay(250);
+    }
+  }
+  else if (currR > 125 && currB > 140){
+    myServo.write(114);
+    delay(670);
+    servoPos = 89;
+    myServo.write(servoPos);
+    stepCount++;
+    if (x == 5 && stepCount == 12) {
+      delay(650);
+      myServo.write(113);
+      delay(550);
+    }
+    else if (x == 6 && stepCount == 12){
+      delay(130);
+      myServo.write(113);
+      delay(300);
+    }
+    else if (x == 7 && stepCount == 12){
+      myServo.write(65);
+      delay(700);
+      myServo.write(89);
+      delay(350);
+    }
+    else if (x == 8 && stepCount == 12){
+      delay(700);
+      myServo.write(65);
+      delay(900);
+      myServo.write(89);
+      delay(350);
+    }
+  }
+  if (currL < 150 && currR < 150) {                        // меньше 1 м → проверяем разницу
+    if(diffR > 0.5 || diffL < -0.5) {           // объект отходит → поворачиваем серво влево
+      servoPos = 98;
+      delay(10);
+      myServo.write(servoPos);
+    } 
+    else if(diffR < -0.5 || diffL > 0.5) {     // объект приближается → вправо
+      servoPos = 80;
+      delay(10);
+      myServo.write(servoPos);
+    } 
+    else {                       // разница в пределах ±1 → центр
+      servoPos = 89;
+      myServo.write(servoPos);
+    }
+  }
+}

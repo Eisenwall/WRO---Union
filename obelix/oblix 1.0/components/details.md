@@ -1,80 +1,105 @@
-
 # Obelix 1.0 — Components List with Images
 
-1. **Arduino Uno**
-   - **Description:** Microcontroller for controlling sensors and motors.
-   - **Quantity:** 1
-   - **Image:** ![Arduino Uno](images/arduino_uno.jpg)
-
-2. **Force-Up 6V 1000 RPM Carbon Brushed DC Motor**
-   - **Description:** High-torque motor for differential drive wheels.
-   - **Quantity:** 1
-   - **Image:** ![DC Motor](images/dc_motor_1000rpm.jpg)
-
-3. **SG90 Servo Motor**
-   - **Description:** Controls front wheels via Ackerman steering.
-   - **Quantity:** 1
-   - **Image:** ![SG90 Servo](images/sg90_servo.jpg)
-
-4. **HC-SR04 Ultrasonic Sensors**
-   - **Description:** Measures distance to obstacles.
-   - **Quantity:** 4 (1 front, 2 sides, 1 rear)
-   - **Image:** ![HC-SR04](images/hc_sr04.jpg)
-
-5. **TCS3200 Color Sensor**
-   - **Description:** Detects color for navigation.
-   - **Quantity:** 1
-   - **Image:** ![TCS3200](images/tcs3200.jpg)
-
-6. **TB6612FNG Motor Driver**
-   - **Description:** Controls DC motor speed and direction.
-   - **Quantity:** 1
-   - **Image:** ![TB6612FNG](images/tb6612fng.jpg)
-
-7. **XL4015 Voltage Regulator**
-   - **Description:** Provides stable voltage to motors.
-   - **Quantity:** 1
-   - **Image:** ![XL4015](images/xl4015.jpg)
-
-8. **Batteries**
-   - **Description:** Power supply for Arduino and motors.
-   - **Li-ion 18650:** 2 cells for Arduino
-     - **Image:** ![18650 Li-ion](images/18650.jpg)
-   - **AA Batteries:** 6 for motors
-     - **Image:** ![AA Batteries](images/aa_batteries.jpg)
-
-9. **Breadboard**
-   - **Description:** For power distribution (GND and VCC) and connections.
-   - **Quantity:** 1
-   - **Image:** ![Breadboard](images/breadboard.jpg)
-
-10. **Differential LEGO System**
-    - **Description:** Custom LEGO assembly to transmit motor torque to wheels.
-    - **Quantity:** 1 assembly
-    - **Image:** ![LEGO Differential](images/lego_differential.jpg)
-
-11. **Wheels and Tires**
-    - **Description:** Front wheels mounted with SG90 servo (Ackerman system), rear wheels driven by differential.
-    - **Quantity:** 4 wheels + 4 tire pieces
-    - **Image:** ![Robot Wheels](images/wheels.jpg)
-
-12. **Bolts and Screws**
-    - **Description:** Assembly for Ackerman system and wheel mounts.
-    - **Quantity:** 2 × 3mm × 15mm bolts (front wheels), 6 smaller bolts for Ackerman system
-    - **Image:** ![Bolts](images/bolts.jpg)
-
-13. **Connecting Wires**
-    - **Description:** ~40 wires used for electrical connections and forming tire structure from bicycle tube material.
-    - **Quantity:** ~40
-    - **Image:** ![Wires](images/wires.jpg)
-
-14. **Miscellaneous**
-    - **Description:** 3D-printed parts, mounts, and connectors for sensors, motors, and servo.
-    - **Quantity:** As required
-    - **Image:** ![3D Parts](images/3d_parts.jpg)
+This file lists all components used in Obelix 1.0, including mechanical, electronic, and sensor parts. Images are placeholders; you can replace them with actual photos or 3D renders.
 
 ---
 
-**Note:**  
-- Images are placeholders and should be replaced with actual photos or uploaded files.  
-- All parts are assembled to ensure unobstructed wheel rotation, proper sensor placement, and reliable power supply.
+## 1. Motors
+**Type:** Force-Up 6V 1000 RPM Carbon Brushed DC Motor  
+**Quantity:** 1  
+**Description:** High torque motor designed for mini sumo robots. Drives two wheels via differential.  
+**Image:** ![Motor](https://via.placeholder.com/150)  
+
+---
+
+## 2. Servo
+**Type:** SG90 Micro Servo  
+**Quantity:** 1  
+**Description:** Controls front wheels via Ackerman steering system.  
+**Image:** ![Servo](https://via.placeholder.com/150)  
+
+---
+
+## 3. Ultrasonic Sensors
+**Type:** HC-SR04  
+**Quantity:** 4  
+**Description:** Measures distance to obstacles. Placement: 1 front, 2 sides, 1 rear.  
+**Image:** ![Ultrasonic Sensor](https://via.placeholder.com/150)  
+
+---
+
+## 4. Color Sensor
+**Type:** TCS3200  
+**Quantity:** 1  
+**Description:** Detects colors/lines in front of the robot.  
+**Image:** ![Color Sensor](https://via.placeholder.com/150)  
+
+---
+
+## 5. Microcontroller
+**Type:** Arduino Uno  
+**Quantity:** 1  
+**Description:** Controls motors, sensors, and servo. Executes navigation algorithms.  
+**Image:** ![Arduino Uno](https://via.placeholder.com/150)  
+
+---
+
+## 6. Motor Driver
+**Type:** TB6612FNG  
+**Quantity:** 1  
+**Description:** Controls motor speed and direction. Mounted freely due to mechanical layout.  
+**Image:** ![Motor Driver](https://via.placeholder.com/150)  
+
+---
+
+## 7. Voltage Regulator
+**Type:** XL4015  
+**Quantity:** 1  
+**Description:** Supplies appropriate voltage to the motors from battery pack.  
+**Image:** ![Voltage Regulator](https://via.placeholder.com/150)  
+
+---
+
+## 8. Power Supply
+- **Li-ion 18650 batteries:** 2 (for Arduino)  
+- **AA batteries:** 6 (for motors)  
+- **Battery holders:** 2 (one for Li-ion, one for AA pack)  
+**Image:** ![Batteries](https://via.placeholder.com/150)  
+
+---
+
+## 9. Wheels and Differential
+**Type:** Custom LEGO differential  
+**Quantity:** 1 differential assembly + 2 front wheels  
+**Description:** Differential distributes motor torque to two wheels; front wheels steered via servo.  
+**Image:** ![Differential](https://via.placeholder.com/150)  
+
+---
+
+## 10. Mechanical Parts for Steering
+**Components:**  
+- 2 × 3mm × 15mm bolts for front wheels  
+- 6 smaller bolts for assembling Ackerman linkage  
+- 2 long cross-shaped LEGO rods for differential connection  
+**Description:** Enables Ackerman steering and differential assembly.  
+**Image:** ![Mechanical Parts](https://via.placeholder.com/150)  
+
+---
+
+## 11. Wires
+**Quantity:** ~40  
+**Description:** Connect sensors, servo, motor driver, and Arduino. Some wires used as tires (from bicycle tube material).  
+**Image:** ![Wires](https://via.placeholder.com/150)  
+
+---
+
+## 12. Breadboard Parts
+**Components:** GND, VCC, and connection points for XL4015, Arduino, and sensors.  
+**Description:** Used to organize power and signal connections.  
+**Image:** ![Breadboard](https://via.placeholder.com/150)  
+
+---
+
+**Notes:**  
+- 3D models for mechanical parts are uploaded separately in the `components/` folder.  
+- Images here are placeholders; replace with actual photos or renders for GitHub visualization.  

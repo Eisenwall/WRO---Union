@@ -1,4 +1,4 @@
-# How to Build Our Robot
+# How to Build Obelix 2.0
 
 This guide explains how to create our robot step by step.
 
@@ -26,7 +26,7 @@ Before starting, make sure you have the following components:
 You will need to 3D print the following components for your robot:
 
 - **Bottom Part (Corpus Base):**  
-  [buttompart.stl]([https://github.com/Eisenwall/WRO---future-engineers/blob/main/files%20for%20creating%20robot/buttompart.stl](https://github.com/Eisenwall/WRO---Union/blob/main/files%20and%20details%20to%20create%20obelix%202.0/3d%20models/3d%20models))  
+  [buttompart.stl](https://github.com/Eisenwall/WRO---Union/blob/main/files%20and%20details%20to%20create%20obelix%202.0/3d%20models/buttompart.gx)  
 
 - **Motor Converter (Connect Motors to LEGO Parts):**  
   [converter for motor.stl](https://github.com/Eisenwall/WRO---Union/blob/main/files%20and%20details%20to%20create%20obelix%202.0/3d%20models/adapters.gx)   

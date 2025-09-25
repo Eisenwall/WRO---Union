@@ -1,0 +1,14 @@
+Changes in the New Version of the Robot
+
+In this version of the robot, key improvements have been made to both the control system and the hardware:
+
+Control System:
+In the first version, an Ackerman Steering system was used. However, due to certain technical difficulties, it was replaced with a Solid Axle Steering system. The new setup turned out to be simpler to implement and more stable in operation.
+
+Motors:
+The Force Up motor was replaced from 625 RPM to 1000 RPM, which improved the robot’s speed and handling. The initial motor ran too fast and was unstable, while the new configuration ensures smoother movement.
+
+Electronics:
+A toggle switch was added to power the robot on and off, making the startup and shutdown process more convenient.
+
+These changes make the new robot more stable, easier to control, and more user-friendly in operation.

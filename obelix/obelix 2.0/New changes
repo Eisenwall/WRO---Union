@@ -11,3 +11,13 @@ Obelix 2.0 — New Changes Compared to Obelix 1.0
 
 3. Power Control Addition
    - Added a toggle switch for motor power, allowing the robot to be safely turned on and off without disconnecting batteries.
+
+8. **Design Corrections**
+   - Several **design adjustments** were made to improve the robot’s aesthetics and ergonomics.
+   - Small modifications in 3D-printed parts to better fit the new steering system and improve component placement.
+   - Wiring layout refined to reduce clutter and prevent interference, while keeping the overall look neat and professional.
+
+8. Design Corrections
+   - Several design adjustments were made to improve the robot’s aesthetics and ergonomics.
+   - Small modifications in 3D-printed parts to better fit the new steering system and improve component placement.
+   - Wiring layout refined to reduce clutter and prevent interference, while keeping the overall look neat and professional.

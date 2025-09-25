@@ -1,0 +1,7 @@
+Ultrasonic Forward: trig - d2, echo - d3
+Ultrasonic Right: trig - d4, echo - d5
+Ultrasonic Left: trig - d6, echo - d7
+Ultrasonic Back: trig - d8, echo - d9
+ColorSensoor: S0 - d10, S1 - d11, S2 - d12, S3 - d13, OUT - A0, Led - A1
+Servo: d - A2
+Tb6612fng: pwma - A3, A1 - A4, A2 - A5

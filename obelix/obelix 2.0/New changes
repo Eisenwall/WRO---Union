@@ -1,14 +1,13 @@
-                                                     Changes in the New Version of the Robot
+# Obelix 2.0 — New Changes Compared to Obelix 1.0
 
-In this version of the robot, key improvements have been made to both the control system and the hardware:
+1. **Steering System Upgrade**
+   - Replaced the Ackerman steering system used in Obelix 1.0 with a **Solid Axle Steering system**.
+   - This change improves stability, reduces mechanical complexity, and enhances reliability during high-speed navigation and obstacle avoidance.
 
-Control System:
-In the first version, an Ackerman Steering system was used. However, due to certain technical difficulties, it was replaced with a Solid Axle Steering system. The new setup turned out to be simpler to implement and more stable in operation.
+2. **Motor Replacement**
+   - The original Force-Up 6V 1000 RPM motor has been replaced with **Force-Up 6V 625 RPM Carbon Brushed DC Motor**.
+   - The new motor provides better torque at lower speed, improving precise movement control and reducing mechanical stress.
+   - Both motors are compatible with the TB6612FNG driver and maintain differential drive functionality.
 
-Motors:
-The Force Up motor was replaced from 625 RPM to 1000 RPM, which improved the robot’s speed and handling. The initial motor ran too fast and was unstable, while the new configuration ensures smoother movement.
-
-Electronics:
-A toggle switch was added to power the robot on and off, making the startup and shutdown process more convenient.
-
-These changes make the new robot more stable, easier to control, and more user-friendly in operation.
+3. **Power Control Addition**
+   - Added a **toggle switch** for motor power, allowing the robot to be safely turned on and off without disconnecting batteries.

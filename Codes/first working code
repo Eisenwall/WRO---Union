@@ -22,7 +22,7 @@ long duration;
 int servoPos = 89;
 int stepCount = 0;
 int x;
-bool xSet = false;  // флаг, определён ли x
+bool xSet = false;  // flag: is x already defined?
 
 float getDistance(int trigPin, int echoPin) {
   digitalWrite(trigPin, LOW);
@@ -32,8 +32,8 @@ float getDistance(int trigPin, int echoPin) {
   digitalWrite(trigPin, LOW);
 
   duration = pulseIn(echoPin, HIGH, 20000);
-  if(duration == 0) return 9999;
-  return (duration * 0.0343) / 2;
+  if(duration == 0) return 9999;   // no echo → return large value
+  return (duration * 0.0343) / 2;  // convert to cm
 }
 
 void setup() {
@@ -52,23 +52,23 @@ void setup() {
   myServo.attach(A2);
   myServo.write(servoPos);
   delay(300);
+
   pinMode(PWMA, OUTPUT);
   pinMode(AIN1, OUTPUT);
   pinMode(AIN2, OUTPUT);
 
   digitalWrite(AIN1, HIGH);
   digitalWrite(AIN2, LOW);
-  analogWrite(PWMA, 255);
+  analogWrite(PWMA, 255);  // motor full speed
 
   Serial.begin(9600);
 }
 
 void loop() {
   if (stepCount >= 12) {
-    analogWrite(PWMA, 0);     // мотор стоп
-    myServo.write(89);        // серво в центр
-    while (true) {
-    }
+    analogWrite(PWMA, 0);     // stop motor
+    myServo.write(89);        // servo back to center
+    while (true) {}           // infinite stop
   }
 
   prevR = currR;
@@ -88,7 +88,7 @@ void loop() {
   float diffB = currB - prevB;
   float diffF = currF - prevF;
 
-  if(!xSet){  // если x ещё не установлен
+  if(!xSet){  // set initial condition (x) once
     if (currL < 18 && currF > currB){
       x = 1;
     }
@@ -116,12 +116,13 @@ void loop() {
     xSet = true;
   }
 
-  if(currL > 125 && currB > 150) {            // больше 1 м → серво на 110° на 400 мс
+  if(currL > 125 && currB > 150) {   // more than ~1 m
     myServo.write(62);
     delay(670);
     servoPos = 89;
     myServo.write(servoPos);
     stepCount++;
+
     if (x == 1 && stepCount == 12) {
       delay(100);
       myServo.write(65);
@@ -147,12 +148,13 @@ void loop() {
       delay(250);
     }
   }
-  else if (currR > 125 && currB > 140){
+  else if (currR > 125 && currB > 140){   // more than ~1 m
     myServo.write(114);
     delay(670);
     servoPos = 89;
     myServo.write(servoPos);
     stepCount++;
+
     if (x == 5 && stepCount == 12) {
       delay(650);
       myServo.write(113);
@@ -177,18 +179,20 @@ void loop() {
       delay(350);
     }
   }
-  if (currL < 150 && currR < 150) {                        // меньше 1 м → проверяем разницу
-    if(diffR > 0.5 || diffL < -0.5) {           // объект отходит → поворачиваем серво влево
+
+  // less than ~1 m → check difference
+  if (currL < 150 && currR < 150) {
+    if(diffR > 0.5 || diffL < -0.5) {   // object moving away → turn left
       servoPos = 98;
       delay(10);
       myServo.write(servoPos);
     } 
-    else if(diffR < -0.5 || diffL > 0.5) {     // объект приближается → вправо
+    else if(diffR < -0.5 || diffL > 0.5) {  // object approaching → turn right
       servoPos = 80;
       delay(10);
       myServo.write(servoPos);
     } 
-    else {                       // разница в пределах ±1 → центр
+    else {   // stable → keep center
       servoPos = 89;
       myServo.write(servoPos);
     }
